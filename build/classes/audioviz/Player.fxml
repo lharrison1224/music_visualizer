@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="audioviz.PlayerController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Open" />
+            </items>
+          </Menu>
+          <Menu fx:id="visualizersMenu" mnemonicParsing="false" text="Visualizers" />
+            <Menu fx:id="bandsMenu" mnemonicParsing="false" text="Bands" />
+        </menus>
+      </MenuBar>
+      <AnchorPane id="AnchorPane" prefHeight="882.0" prefWidth="1200.0" styleClass="mainFxmlClass">
+          <stylesheets>
+              <URL value="@player.css" />
+          </stylesheets>
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="875.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Button layoutX="25.0" layoutY="58.0" mnemonicParsing="false" onAction="#handlePlay" text="Play" />
+            <Button layoutX="78.0" layoutY="58.0" mnemonicParsing="false" onAction="#handlePause" text="Pause" />
+            <Button layoutX="142.0" layoutY="58.0" mnemonicParsing="false" onAction="#handleStop" text="Stop" />
+            <Text fx:id="lengthText" fill="WHITE" layoutX="86.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Label layoutX="28.0" layoutY="112.0" text="Length:" textFill="WHITE" />
+            <Label layoutX="25.0" layoutY="137.0" text="Current:" textFill="WHITE" />
+            <Text fx:id="currentText" fill="WHITE" layoutX="86.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <AnchorPane fx:id="vizPane" layoutX="102.0" layoutY="100.0" prefHeight="761.0" prefWidth="1080.0" />
+            <Text fx:id="errorText" fill="WHITE" layoutX="25.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="200.0" layoutX="25.0" layoutY="203.0" />
+            <Text fx:id="filePathText" fill="WHITE" layoutX="25.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="visualizerNameText" fill="WHITE" layoutX="20.0" layoutY="850.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Text>
+            <Label layoutX="31.0" layoutY="161.0" text="Bands:" textFill="WHITE" />
+            <Text fx:id="bandsText" fill="WHITE" layoutX="86.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Slider fx:id="timeSlider" layoutX="266.0" layoutY="63.0" onMousePressed="#handleSliderMousePressed" onMouseReleased="#handleSliderMouseReleased" prefHeight="16.0" prefWidth="476.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
